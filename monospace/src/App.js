@@ -9,7 +9,7 @@ const App = () => {
   return (
     <>
       <CssBaseline />
-      <Container maxWidth="false">
+      <Container maxWidth="lg">
         <div style={{ backgroundColor: "#F8F9FB", height: "100vh" }}>
           <Users />
         </div>
