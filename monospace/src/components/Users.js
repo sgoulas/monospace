@@ -11,14 +11,50 @@ const Users = () => {
   const isLoading = useSelector((state) => state.isLoading);
   const fetchedUsers = useSelector((state) => state.users);
 
-  const handleStatusChange = (rowData) => {
-    const userID = rowData.id;
-    let updatedUsers = [...fetchedUsers];
-    const userIndex = updatedUsers.findIndex((el) => el.id === userID);
-    updatedUsers[userIndex].active = !updatedUsers[userIndex].active;
+  const fetchUserData = () => {
+    const getUsersUrl =
+      "http://spiros.users.challenge.dev.monospacelabs.com/users";
 
+    dispatch(fetchActions.getUsersInit());
+    axios
+      .get(getUsersUrl)
+      .then((response) => {
+        dispatch(fetchActions.getUsersSuccess(response.data));
+      })
+      .catch((error) => {
+        console.log(error);
+        dispatch(fetchActions.getUsersFail());
+      });
+  };
+
+  const updateUsersTableData = (updatedUser, userIndex) => {
+    const updatedUsers = [...fetchedUsers];
+    updatedUsers[userIndex] = updatedUser;
     dispatch(fetchActions.setUsers(updatedUsers));
   };
+
+  const handleStatusChange = (rowData) => {
+    const userID = rowData.id;
+    const userIndex = fetchedUsers.findIndex((el) => el.id === userID);
+    const putUserUrl = `http://spiros.users.challenge.dev.monospacelabs.com/users/${userID}`;
+
+    dispatch(fetchActions.putUserInit());
+    axios
+      .put(putUserUrl)
+      .then((response) => {
+        dispatch(fetchActions.putUserSuccess());
+        const updatedUser = response.data;
+        updateUsersTableData(updatedUser, userIndex);
+      })
+      .catch((error) => {
+        console.log(error);
+        dispatch(fetchActions.putUserFail());
+      });
+  };
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
 
   const columns = [
     {
@@ -70,22 +106,6 @@ const Users = () => {
       ),
     },
   ];
-
-  useEffect(() => {
-    const getUsersUrl =
-      "http://spiros.users.challenge.dev.monospacelabs.com/users";
-
-    dispatch(fetchActions.getUsersInit());
-    axios
-      .get(getUsersUrl)
-      .then((response) => {
-        dispatch(fetchActions.getUsersSuccess(response.data));
-      })
-      .catch((error) => {
-        console.log(error);
-        dispatch(fetchActions.getUsersFail());
-      });
-  }, []);
 
   return (
     <MaterialTable

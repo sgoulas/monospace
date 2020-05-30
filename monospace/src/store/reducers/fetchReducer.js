@@ -46,6 +46,14 @@ const reducer = (state = initialState, action) => {
       return getUsersSuccess(state, action.payload);
     case fetchActionTypes.GET_USERS_FAIL:
       return getUsersFail(state);
+
+    case fetchActionTypes.PUT_USER_INIT:
+      return state;
+    case fetchActionTypes.PUT_USER_SUCCESS:
+      return state;
+    case fetchActionTypes.PUT_USER_FAIL:
+      return state;
+
     case fetchActionTypes.SET_USERS:
       return setUsers(state, action.payload);
     default:

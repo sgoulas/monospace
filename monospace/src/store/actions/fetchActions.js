@@ -19,6 +19,24 @@ export const getUsersFail = () => {
   };
 };
 
+export const putUserInit = () => {
+  return {
+    type: actionTypes.PUT_USER_INIT,
+  };
+};
+
+export const putUserSuccess = () => {
+  return {
+    type: actionTypes.PUT_USER_SUCCESS,
+  };
+};
+
+export const putUserFail = () => {
+  return {
+    type: actionTypes.PUT_USER_FAIL,
+  };
+};
+
 export const setUsers = (payload) => {
   return {
     type: actionTypes.SET_USERS,
