@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import MaterialTable from "material-table";
-import Switch from "@material-ui/core/Switch";
 import axios from "axios";
 import * as fetchActions from "../store/actions/fetchActions";
+import CustomSwitch from "./CustomSwitch";
 
 const Users = () => {
   const dispatch = useDispatch();
@@ -103,7 +103,7 @@ const Users = () => {
         fontWeight: 600,
       },
       render: (rowData) => (
-        <Switch
+        <CustomSwitch
           checked={rowData.active}
           onChange={() => handleStatusChange(rowData)}
           color="primary"
