@@ -13,10 +13,9 @@ const Users = () => {
 
   const handleStatusChange = (rowData) => {
     const userID = rowData.id;
-    const currentStatus = rowData.active;
     let updatedUsers = [...fetchedUsers];
-    const toggledIndex = updatedUsers.findIndex((el) => el.id === userID);
-    updatedUsers[toggledIndex].active = !updatedUsers[toggledIndex].active;
+    const userIndex = updatedUsers.findIndex((el) => el.id === userID);
+    updatedUsers[userIndex].active = !updatedUsers[userIndex].active;
 
     dispatch(fetchActions.setUsers(updatedUsers));
   };
