@@ -4,6 +4,8 @@ import MaterialTable from "material-table";
 import axios from "axios";
 import * as fetchActions from "../store/actions/fetchActions";
 import CustomSwitch from "./CustomSwitch";
+import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
+import Grid from "@material-ui/core/Grid";
 
 const Users = () => {
   const dispatch = useDispatch();
@@ -113,9 +115,20 @@ const Users = () => {
     },
   ];
 
+  const tableTitle = (
+    <Grid container direction="row" justify="flex-start" alignItems="center">
+      <Grid item>
+        <PeopleAltIcon />
+      </Grid>
+      <Grid item>
+        <span style={{ padding: 5 }}>Users</span>
+      </Grid>
+    </Grid>
+  );
+
   return (
     <MaterialTable
-      title="users table"
+      title={tableTitle}
       isLoading={isLoading}
       columns={columns}
       data={fetchedUsers}
