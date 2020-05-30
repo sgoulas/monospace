@@ -29,6 +29,15 @@ const getUsersFail = (state) => {
   return updateObject(state, newState);
 };
 
+const setUsers = (state, payload) => {
+  const newState = {
+    isLoading: false,
+    users: payload,
+  };
+
+  return updateObject(state, newState);
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case fetchActionTypes.GET_USERS_INIT:
@@ -37,6 +46,8 @@ const reducer = (state = initialState, action) => {
       return getUsersSuccess(state, action.payload);
     case fetchActionTypes.GET_USERS_FAIL:
       return getUsersFail(state);
+    case fetchActionTypes.SET_USERS:
+      return setUsers(state, action.payload);
     default:
       return state;
   }

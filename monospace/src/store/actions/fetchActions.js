@@ -18,3 +18,10 @@ export const getUsersFail = () => {
     type: actionTypes.GET_USERS_FAIL,
   };
 };
+
+export const setUsers = (payload) => {
+  return {
+    type: actionTypes.SET_USERS,
+    payload,
+  };
+};
