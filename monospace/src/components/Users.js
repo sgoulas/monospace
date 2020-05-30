@@ -6,6 +6,7 @@ import * as fetchActions from "../store/actions/fetchActions";
 import CustomSwitch from "./CustomSwitch";
 import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
 import Grid from "@material-ui/core/Grid";
+import UserBadge from "./UserBadge";
 
 const Users = () => {
   const dispatch = useDispatch();
@@ -68,6 +69,7 @@ const Users = () => {
         color: "#39628D",
         fontWeight: 600,
       },
+      render: (rowData) => <UserBadge type={rowData.type} />,
     },
     {
       title: "NAME",
@@ -122,6 +124,9 @@ const Users = () => {
       </Grid>
       <Grid item>
         <span style={{ padding: 5 }}>Users</span>
+      </Grid>
+      <Grid item>
+        <UserBadge />
       </Grid>
     </Grid>
   );
