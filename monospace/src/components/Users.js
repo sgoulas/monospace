@@ -24,28 +24,47 @@ const Users = () => {
     {
       title: "type",
       field: "type",
+      headerStyle: {
+        backgroundColor: "#F8F9FB",
+        color: "#39628D",
+      },
     },
     {
       title: "name",
       field: "name",
+      headerStyle: {
+        backgroundColor: "#F8F9FB",
+        color: "#39628D",
+      },
     },
     {
       title: "email",
       field: "email",
+      headerStyle: {
+        backgroundColor: "#F8F9FB",
+        color: "#39628D",
+      },
     },
     {
       title: "telephone",
       field: "phone",
+      headerStyle: {
+        backgroundColor: "#F8F9FB",
+        color: "#39628D",
+      },
     },
     {
       title: "status",
       field: "status",
+      headerStyle: {
+        backgroundColor: "#F8F9FB",
+        color: "#39628D",
+      },
       render: (rowData) => (
         <Switch
           checked={rowData.active}
           onChange={() => handleStatusChange(rowData)}
           color="primary"
-          // name="checkedB"
           inputProps={{ "aria-label": "primary checkbox" }}
         />
       ),
@@ -60,7 +79,6 @@ const Users = () => {
     axios
       .get(getUsersUrl)
       .then((response) => {
-        console.log(response.data);
         dispatch(fetchActions.getUsersSuccess(response.data));
       })
       .catch((error) => {
@@ -80,6 +98,11 @@ const Users = () => {
         paging: false,
         search: false,
         selection: true,
+        rowStyle: {
+          backgroundColor: "#F8F9FB",
+          color: "#39628D",
+          fontWeight: "bold",
+        },
       }}
     ></MaterialTable>
   );
