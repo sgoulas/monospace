@@ -3,7 +3,7 @@ import React from "react";
 const UserBadge = (props) => {
   const { type } = props;
 
-  let styleObj = { width: 24, height: 20 };
+  let styleObj = { width: 30, height: 20, textAlign: "center" };
 
   let text;
 
