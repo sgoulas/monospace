@@ -141,6 +141,7 @@ const Users = () => {
           backgroundColor: "#F8F9FB",
           color: "#39628D",
           fontWeight: "bold",
+          cursor: "pointer",
         },
       }}
     ></MaterialTable>
