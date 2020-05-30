@@ -59,43 +59,48 @@ const Users = () => {
 
   const columns = [
     {
-      title: "type",
+      title: "TYPE",
       field: "type",
       headerStyle: {
         backgroundColor: "#F8F9FB",
         color: "#39628D",
+        fontWeight: 600,
       },
     },
     {
-      title: "name",
+      title: "NAME",
       field: "name",
       headerStyle: {
         backgroundColor: "#F8F9FB",
         color: "#39628D",
+        fontWeight: 600,
       },
     },
     {
-      title: "email",
+      title: "EMAIL",
       field: "email",
       headerStyle: {
         backgroundColor: "#F8F9FB",
         color: "#39628D",
+        fontWeight: 600,
       },
     },
     {
-      title: "telephone",
+      title: "TELEPHONE",
       field: "phone",
       headerStyle: {
         backgroundColor: "#F8F9FB",
         color: "#39628D",
+        fontWeight: 600,
       },
     },
     {
-      title: "status",
+      title: "STATUS",
       field: "status",
       headerStyle: {
         backgroundColor: "#F8F9FB",
         color: "#39628D",
+        fontWeight: 600,
       },
       render: (rowData) => (
         <Switch
