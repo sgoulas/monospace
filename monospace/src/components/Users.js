@@ -37,10 +37,12 @@ const Users = () => {
     const userID = rowData.id;
     const userIndex = fetchedUsers.findIndex((el) => el.id === userID);
     const putUserUrl = `http://spiros.users.challenge.dev.monospacelabs.com/users/${userID}`;
+    const user = [...fetchedUsers][userIndex];
+    user.active = !user.active;
 
     dispatch(fetchActions.putUserInit());
     axios
-      .put(putUserUrl)
+      .put(putUserUrl, user)
       .then((response) => {
         dispatch(fetchActions.putUserSuccess());
         const updatedUser = response.data;
