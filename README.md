@@ -6,7 +6,7 @@ be sent via new requests.
 
 ## Time limit
 
-This assignment was created in just under 4 hours.
+This assignment was completed in just under 4 hours.
 
 ## Technologies used
 
